@@ -1,0 +1,26 @@
+﻿@{
+    ViewData["Title"] = "Home Page";
+}
+@model List<Student>;
+<div>
+    <table class="table d-lg-table">
+        <thead>
+            <tr>
+                <th>Name</th>
+                <th>Age</th>
+                <th>Phone</th>
+            </tr>
+        </thead>
+        <tbody>
+            
+            @foreach(var item in Model){
+            <tr>
+                <td>@item.Name</td>
+                <td>@item.Age</td>
+                <td>@item.PhoneNo</td>
+            </tr>
+            }
+            
+        </tbody>
+    </table>
+</div>
