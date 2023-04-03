@@ -18,7 +18,7 @@ namespace StudentManagementSystemNew.Controllers
         public IActionResult Index()
         {
             List<Student> students = new List<Student>();
-            students = _context.Students.Where(x=>x.Name== "Rupesj").OrderBy(x=>x.Name).ToList();
+            students = _context.Students.OrderBy(x=>x.Name).ToList();
             return View(students);
         }
         public IActionResult Create()
@@ -29,6 +29,17 @@ namespace StudentManagementSystemNew.Controllers
         public IActionResult Create(Student obj)
         {
            _context.Students.Add(obj);
+            var result = _context.SaveChanges();
+            return View();
+        }
+        public IActionResult Edit( int id=1)
+        {
+            return View();
+        }
+        [HttpPost]
+        public IActionResult Edit(Student obj)
+        {
+            _context.Students.Add(obj);
             var result = _context.SaveChanges();
             return View();
         }
