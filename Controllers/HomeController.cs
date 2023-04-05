@@ -34,7 +34,8 @@ namespace StudentManagementSystemNew.Controllers
         }
         public IActionResult Edit( int id=1)
         {
-            return View();
+            var data=_context.Students.Where(x=>x.Id==id).FirstOrDefault();
+            return View(data);
         }
         [HttpPost]
         public IActionResult Edit(Student obj)
