@@ -32,7 +32,7 @@ namespace StudentManagementSystemNew.Controllers
             var result = _context.SaveChanges();
             return View();
         }
-        public IActionResult Edit( int id=1)
+        public IActionResult Edit( int id)
         {
             var data=_context.Students.Where(x=>x.Id==id).FirstOrDefault();
             return View(data);
@@ -40,9 +40,14 @@ namespace StudentManagementSystemNew.Controllers
         [HttpPost]
         public IActionResult Edit(Student obj)
         {
-            _context.Students.Add(obj);
-            var result = _context.SaveChanges();
-            return View();
+            var data= _context.Students.Where(x=>x.Id==obj.Id).FirstOrDefault();
+            data.Name=obj.Name;
+            data.Age=obj.Age;
+            data.PhoneNo=obj.PhoneNo;
+            _context.SaveChanges();
+
+            return RedirectToAction("Index");
+            
         }
         public IActionResult About()
         {
@@ -51,6 +56,13 @@ namespace StudentManagementSystemNew.Controllers
         public IActionResult Privacy()
         {
             return View();
+        }
+        public IActionResult Delete(int id)
+        {
+            var data = _context.Students.Where(x => x.Id == id).First();
+            _context.Students.Remove(data);
+            _context.SaveChanges();
+            return RedirectToAction("Index");
         }
 
         [ResponseCache(Duration = 0, Location = ResponseCacheLocation.None, NoStore = true)]
