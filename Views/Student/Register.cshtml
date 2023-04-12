@@ -3,7 +3,8 @@
 *@
 @{
 }
-<form action="post" class="container my-5">
+@model StudentRegister
+<form class="container my-5" method="post" asp-controller="Student" asp-action="Register">
         <h1 class="display-4 fw-bold text-primary">Registration Form</h1>
         <p class="text-start text-secondary">
             Please fill this form in order to create a new account.
@@ -13,6 +14,7 @@
             <input type="text"
                    class="form-control"
                    id="name"
+                   name="Name"
                    placeholder="your full name..." />
         </div>
         <div class="mb-3">
@@ -20,6 +22,7 @@
             <input type="number"
                    class="form-control"
                    id="phone"
+                   name="Phone"
                    placeholder="98xxxxxxxx" />
         </div>
         <div class="mb-3">
@@ -27,6 +30,7 @@
             <input type="email"
                    class="form-control"
                    id="Email"
+                   name="Email"
                    placeholder="example@gmail.com" />
         </div>
         <div class="mb-3">
@@ -35,14 +39,14 @@
                 <div class="form-check">
                     <input class="form-check-input"
                            type="radio"
-                           name="gender"
+                           name="Gender"
                            id="male" />
                     <label class="form-check-label" for="male"> Male </label>
                 </div>
                 <div class="form-check">
                     <input class="form-check-input"
                            type="radio"
-                           name="gender"
+                           name="Gender"
                            id="female" />
                     <label class="form-check-label" for="female"> Female </label>
                 </div>
@@ -52,6 +56,7 @@
             <label for="department" class="form-label">Department</label>
             <select class="form-select"
                     id="department"
+                    name="Department"
                     aria-label="Default select example">
                 <option selected>Select department</option>
                 <option value="it">IT</option>
@@ -66,6 +71,7 @@
                     <input class="form-check-input"
                            type="checkbox"
                            value="math"
+                           name="OptionalSub"
                            id="flexCheckDefault" />
                     <label class="form-check-label" for="flexCheckDefault">
                         Math
@@ -75,7 +81,9 @@
                     <input class="form-check-input"
                            type="checkbox"
                            value="english"
+                           name="OptionalSub"
                            id="flexCheckChecked" />
+
                     <label class="form-check-label" for="flexCheckChecked">
                         English
                     </label>
@@ -84,6 +92,7 @@
                     <input class="form-check-input"
                            type="checkbox"
                            value="nepali"
+                           name="OptionalSub"
                            id="flexCheckCheckedNepali" />
                     <label class="form-check-label" for="flexCheckCheckedNepali">
                         Nepali
@@ -95,6 +104,7 @@
             <label for="exampleFormControlTextarea1" class="form-label">Message</label>
             <textarea class="form-control"
                       id="exampleFormControlTextarea1"
+                      name="Message"
                       placeholder="your message.."
                       rows="3"></textarea>
         </div>

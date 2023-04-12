@@ -11,5 +11,7 @@ namespace StudentManagementSystemNew.Data
         {
         }
         public DbSet<Student> Students { get; set; }
+        public DbSet<StudentRegister> StudentRegisters { get; set; }
+        public DbSet<StudentOPTSubjectMapping> StudentOPTSubjectMappings { get; set; }
     }
 }
