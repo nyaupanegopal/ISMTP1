@@ -69,40 +69,22 @@
         </div>
         <div class="mb-3">
             <label for="department" class="form-label">Optional Subject</label>
+            @foreach(var item in ViewBag.OptSub)
+            {
             <div class="d-flex gap-3">
                 <div class="form-check">
                     <input class="form-check-input"
                            type="checkbox"
-                           value="math"
+                           value="@item.Id"
                            name="OptionalSub"
                            id="flexCheckDefault" />
                     <label class="form-check-label" for="flexCheckDefault">
-                        Math
+                        @item.OptionalSub
                     </label>
                 </div>
-                <div class="form-check">
-                    <input class="form-check-input"
-                           type="checkbox"
-                           value="english"
-                           name="OptionalSub"
-                           id="flexCheckChecked" />
-
-                    <label class="form-check-label" for="flexCheckChecked">
-                        English
-                    </label>
-                </div>
-                <div class="form-check">
-                    <input class="form-check-input"
-                    
-                           type="checkbox"
-                           value="nepali"
-                           name="OptionalSub"
-                           id="flexCheckCheckedNepali" />
-                    <label class="form-check-label" for="flexCheckCheckedNepali">
-                        Nepali
-                    </label>
-                </div>
+                
             </div>
+            }
         </div>
         <div class="mb-3">
             <label for="exampleFormControlTextarea1" class="form-label">Message</label>
