@@ -2,14 +2,18 @@
 using Microsoft.AspNetCore.Mvc.Rendering;
 using StudentManagementSystemNew.Data;
 using StudentManagementSystemNew.Models;
+using StudentManagementSystemNew.Services;
+using StudentRegister = StudentManagementSystemNew.Models.StudentRegister;
 
 namespace StudentManagementSystemNew.Controllers
 {
     public class StudentController : Controller
     {
         private readonly ApplicationDbContext _context;
-        public StudentController(ApplicationDbContext context)
+        private readonly IStudentRegister _studentRegister;
+        public StudentController(ApplicationDbContext context, IStudentRegister student)
         {
+            _studentRegister = student;
             _context = context;
         }
         public IActionResult Index()
@@ -19,7 +23,7 @@ namespace StudentManagementSystemNew.Controllers
         public IActionResult Register()
         {
             ViewBag.OptSub = _context.OptionalSubjects.ToList();
-            var data = _context.Departments.ToList();
+            var data = _studentRegister.FetchDepartmentList();  
              ViewBag.DepartmentData = new SelectList(data, "Id", "DepartmentName");
             return View();
         }
